@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1> Array Learn </h1>
+    <h2> Array literal = ["Micah", "Glenn", "Sherwin"]<h2></h2> <br>
+        <h3>Array Methods</h3>
+        <li>Push method = is for mag add sa dulo ng array</li>
+        <li>Pop Method = mag tanggal sa dulo</li>
+        <li>Unshift Method = mag add sa unahan</li>
+        <li>Splice Method = ay ginagamit para magtanggal, magdagdag, o magpalit ng item sa array sa kahit anong
+            posisyon.<br>
+            <mark> array.splice(startIndex from 0, startCount from 1);</mark>
+        </li>
+
+        <script>
+            let people = ["Micah", "Glenn", "Sherwin"]
+            people.push("Errol");
+            people.push("Rodelas");
+            console.log("array without user input and add sa last")
+            console.log(people);
+
+
+
+            //with user input
+            let userInput = prompt("Enter a name to add to the array:");
+            people.push(userInput);
+
+            // output
+            console.log("array with user input")
+            console.log(people);
+
+            //pop
+            people.pop();
+            console.log("POP Method (remove ung nasa hulihan)")
+            console.log(people);
+
+            //unshift add noah
+            people.unshift("Noah")
+            console.log("Shift Method (Add noah sa unahan)")
+            console.log(people);
+
+            //splice 
+            let place = ["Manila", "Laguna", "Batangas", "Boracay", "Cabuyao", "Benguet", "Tarlac", "Bicol", "Mindoror"];
+
+            // mag remove tayo gamit ang splice sa variable na place
+            let remove = place.splice(4, 2)
+            console.log("na remove na place ay:" + remove)
+            console.log("ang natirang place ay:" + place);
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+</body>
+
+</html>
