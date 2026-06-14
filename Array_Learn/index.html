@@ -15,11 +15,21 @@
 
 <body>
     <h1> Array Learn </h1>
-    <h2> Array literal = ["Micah", "Glenn", "Sherwin"]<h2></h2> <br>
+    <h2> Array literal = ["Micah", "Glenn", "Sherwin"]<h2></h2>
         <h3>Array Methods</h3>
-        <li>Push method = is for mag add sa dulo ng array</li>
-        <li>Pop Method = mag tanggal sa dulo</li>
-        <li>Unshift Method = mag add sa unahan</li>
+        <li>Push method = is for mag add sa dulo ng array</li><br>
+        <li>Pop Method = mag tanggal sa dulo</li><br>
+        <li>Unshift Method = mag add sa unahan</li><br>
+        <li>Shift Method = mag tanggal sa unahan</li><br>
+        <li>Slice = Pagkuha ng Bahagi ng Array <mark>array.slice(start, end)</mark><br>
+            "Simulan sa star index , at kumuha hanggang bago dumating sa end index ."<br>
+            <mark>Example</mark><br>let language = ["English", "Tagalog", "Japanese", "Korean", "Spanish", "German",
+            "Turkish", "French"];<br>
+            <b>language.slice(2, 5)</b><br>
+            output: ["Japanese", "Korean", "Spanish"]<br>
+            <mark>Note: Ang end index ay hindi kasama sa output</mark>
+        </li><br>
+
         <li>Splice Method = ay ginagamit para magtanggal, magdagdag, o magpalit ng item sa array sa kahit anong
             posisyon.<br>
             <i>1. Remove</i>
@@ -30,78 +40,100 @@
             <mark>people.splice(1, 1, <b>"B"</b>);</mark><br>
             <i>4. Insert Multiple Items</i>
             <mark>people.splice(1, 0, <b>"B","A","C"</b>);</mark><br>
-             <i>5. Insert and replace Multiple Items</i>
+            <i>5. Insert and replace Multiple Items</i>
             <mark>people.splice(0, 3, <b>"B","A","C"</b>);</mark>
+        </li>
+        <li>Map Method = ay ginagamit para baguhin o i-transform bawat element ng array</li>
 
-
-            <script>
-                let people = ["Micah", "Glenn", "Sherwin"]
-                people.push("Errol");
-                people.push("Rodelas");
-                console.log("array without user input and add sa last")
-                console.log(people);
-
-
-
-                //with user input
-                let userInput = prompt("Enter a name to add to the array:");
-                people.push(userInput);
-
-                // output
-                console.log("array with user input")
-                console.log(people);
-
-                //pop
-                people.pop();
-                console.log("POP Method (remove ung nasa hulihan)")
-                console.log(people);
-
-                //unshift add noah
-                people.unshift("Noah")
-                console.log("Shift Method (Add noah sa unahan)")
-                console.log(people);
-
-                //splice 
-                let place = ["Manila", "Laguna", "Batangas", "Boracay", "Cabuyao", "Benguet", "Tarlac", "Bicol", "Mindoro"];
-                console.log("Array before using splice method")
-                console.log(place);
-
-                // mag remove tayo gamit ang splice sa variable na place
-                let remove = place.splice(4, 2)
-                console.log("na remove na place ay:" + remove)
-                console.log("ang natirang place ay");
-                console.log(place);
-
-                //mag add sa splice method
-                console.log("mag add tayo sa index 2")
-                let add = place.splice(2, 0, "Cebu")
-                console.log(place)
-
-                //mag replace sa splice method
-                console.log("remove ang boracay palitan ng masasa")
-                console.log("aalisin natin ang " + place[4] + "at pinalitan ng Masasa");
-                let replace = place.splice(4, 1, " Masasa")
-                console.log(place)
-
-                // insert multiple items
-                console.log("Mag add ng maraming place sa hulihin")
-                place.splice(8, 0, "Albay", "Rizal", "Cabuyao", "Binan", "Complex");
-                console.log(place)
-
-                // insert and replace multiple items
-                console.log("alisin natin lahat gawin natin country");
-                let replacerem = place.splice(0, 14, "Japan", "Philippines", "Korea", "America", "Germany", "Turkey", "Spain");
-
-                console.log("ang irereplace natin ang mga sumusunod", replacerem);
-                console.log("papunta sa", place)
+        <script>
+            let people = ["Micah", "Glenn", "Sherwin"]
+            people.push("Errol");
+            people.push("Rodelas");
+            console.log("array without user input and add sa last")
+            console.log(people);
 
 
 
+            //with user input
+            let userInput = prompt("Enter a name to add to the array:");
+            people.push(userInput);
+
+            // output
+            console.log("array with user input")
+            console.log(people);
+
+            //pop
+            people.pop();
+            console.log("POP Method (remove ung nasa hulihan)")
+            console.log(people);
+
+            //unshift add noah
+            people.unshift("Noah")
+            console.log("Shift Method (Add noah sa unahan)")
+            console.log(people);
+
+            //splice 
+            let place = ["Manila", "Laguna", "Batangas", "Boracay", "Cabuyao", "Benguet", "Tarlac", "Bicol", "Mindoro"];
+            console.log("Array before using splice method")
+            console.log(place);
+
+            // mag remove tayo gamit ang splice sa variable na place
+            let remove = place.splice(4, 2)
+            console.log("na remove na place ay:" + remove)
+            console.log("ang natirang place ay");
+            console.log(place);
+
+            //mag add sa splice method
+            console.log("mag add tayo sa index 2")
+            let add = place.splice(2, 0, "Cebu")
+            console.log(place)
+
+            //mag replace sa splice method
+            console.log("remove ang boracay palitan ng masasa")
+            console.log("aalisin natin ang " + place[4] + "at pinalitan ng Masasa");
+            let replace = place.splice(4, 1, " Masasa")
+            console.log(place)
+
+            // insert multiple items
+            console.log("Mag add ng maraming place sa hulihin")
+            place.splice(8, 0, "Albay", "Rizal", "Cabuyao", "Binan", "Complex");
+            console.log(place)
+
+            // insert and replace multiple items
+            console.log("alisin natin lahat gawin natin country");
+            let replacerem = place.splice(0, 14, "Japan", "Philippines", "Korea", "America", "Germany", "Turkey", "Spain");
+
+            console.log("ang irereplace natin ang mga sumusunod", replacerem);
+            console.log("papunta sa", place)
+
+            // shift method
+            place.shift();
+            console.log("Shift Method (remove ung nasa unahan)")
+            console.log(place);
+
+            console.log("Slice Method (kuha ng bahagi ng array)")
+            let language = ["English", "Tagalog", "Japanese", "Korean", "Spanish", "German", "Turkish", "French"];
+            console.log("Array before using slice method")
+            console.log(language);
+            console.log("kuha ng bahagi ng array mula index 2 hanggang 5")
+
+            let myLanguage = language.slice(2, 5);
+            console.log(myLanguage);
+            console.log("ang original array ay hindi naapektuhan");
+            console.log(language)
+
+            //map method
+            
 
 
 
 
-            </script>
+
+
+
+
+
+        </script>
 </body>
 
 </html>
