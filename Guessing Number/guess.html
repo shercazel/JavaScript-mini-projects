@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <title>Document</title>
+</head>
+<p>console.log() = Tumatanggap ng maraming arguments</p>
+<p> alert() = Isang value lang ang tinatanggap:</p>
+<p><b>"arguments"</p>b ay ang mga values na ipinapasa mo sa isang function kapag tinatawag mo ito.
+<mark>Example</mark><br>
+console.log("Hello"); <br>
+dito Hello ang Argument</p>
+
+<body>
+
+    <script>
+
+        let score = 0;
+        let live = 3;
+        let running = true;
+        let randomNum = Math.floor(Math.random() * 10) + 1
+        console.log(randomNum);
+
+        while (running) {
+
+            let guessNum = Number(prompt("Guess the Number from 1 - 10"));
+            if (guessNum === randomNum) {
+                score++
+                alert("Tama ka! Score:" + score);
+
+                let randomNum = Math.floor(Math.random() * 10) + 1
+                console.log(randomNum);
+
+            } else {
+                live--
+                alert("Mali bawasan ng isa ang buhay mo " + live);
+                if (live === 0) {
+                    alert("Game Over: " + score);
+                    running = false
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
