@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0%;
+            margin: 0%;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            height: 100svh;
+            background-color: #b1b1b1;
+            background: linear-gradient(to bottom, rgba(0, 109, 119, 0.1), rgba(0, 173, 207, 0.379));
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #mainContainer {
+            width: 80%;
+
+            max-width: 550px;
+            height: 500px;
+            background-color: #ffffff14;
+            backdrop-filter: blur(20px);
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.144);
+
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            align-items: center;
+
+            row-gap: 20px;
+        }
+
+        h1 {
+            font-size: 25px;
+            text-align: center;
+            color: green;
+        }
+
+
+        button {
+            padding: 10px 100px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #input-container {
+            width: 90%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            row-gap: 20px;
+        }
+
+        input {
+            width: 100%;
+            height: 40px;
+            padding-left: 5px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        #res-area {
+            height: 100%;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            padding: 1rem;
+        }
+
+        p {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-weight: 500;
+            column-gap: 10px;
+        }
+
+        span {
+            color: rgb(0, 120, 44);
+            font-weight: 600;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="mainContainer">
+        <h1>BMI CALCULATOR</h1>
+        <div id="input-container">
+            <input type="number" id="weight" placeholder="Enter weight in kg">
+            <input type="number" id="height" placeholder="Enter height in m">
+        </div>
+        <button id="Calculate">Calculate</button>
+        <button id="Reset">Reset</button>
+        <div id="res-area">
+            <p>Your Input: <span id="DisplayArea"></span></p>
+            <p>Result: <span id="DisplayResult"></span></p>
+            <p>BMI category:<span id="bmiCategory"></span></p>
+        </div>
+    </div>
+    <script>
+        let isReset = true;
+        let result;
+        let displayInput = "";
+        let display = document.getElementById("DisplayArea");
+        let category = document.getElementById("bmiCategory")
+        let displayRes = document.getElementById("DisplayResult");
+
+
+        let calculate = document.getElementById("Calculate").addEventListener("click", function () {
+            let height = document.getElementById("height").value;
+            let weight = document.getElementById("weight").value;
+            height = height / 100;
+            height = Math.pow(height, 2);
+            height = height.toFixed(2);
+            result = weight / height;
+            result = result.toFixed(2)
+            displayInput = `${weight} kg  ${height}m`;
+            displayRes.innerText = `${result}`
+            display.innerText = displayInput;
+            bmiCategory()
+
+        })
+
+        let reset = document.getElementById("Reset").addEventListener("click", function () {
+
+
+            resetFunction();
+
+        })
+
+        function bmiCategory() {
+            switch (true) {
+                case (result <= 18.5): {
+                    category.innerHTML = `Underweight`
+                }
+                    break;
+                case (result <= 24.9): {
+                    category.innerHTML = `Healthy weight`
+                }
+                    break;
+                case (result <= 29.9): {
+                    category.innerHTML = `Overweight    `
+                }
+                    break;
+                case (result <= 39.9): {
+                    category.innerHTML = `Obese`
+                }
+                    break;
+                default:
+                    category.innerHTML = "Severe Overweight";
+            }
+        }
+        function resetFunction() {
+
+            category.innerHTML = "";
+            height.value = null;
+            weight.value = null;
+            result = null;
+            displayInput = "";
+            displayRes.innerText = "";
+            display.innerText = "";
+
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -3,27 +3,337 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width='device-width', initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+
     <style>
         * {
-            margin: 0;
             padding: 0;
+            margin: 0;
             box-sizing: border-box;
         }
 
         body {
+            min-height: 100svh;
             font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
+            background: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+        }
+
+        .calculator {
+            width: min(100%, 420px);
+            min-height: 620px;
+            background-color: #202020;
+            padding: 12px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .resultContainer {
+            min-height: 150px;
+            background-color: rgb(220, 220, 220);
+            border-radius: 5px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding: 16px;
+            overflow: hidden;
+        }
+
+        #totalResult {
+            width: 100%;
+            color: #111;
+            font-size: clamp(30px, 9vw, 48px);
+            font-weight: 700;
+            line-height: 1.1;
+            text-align: right;
+            word-break: break-all;
+        }
+
+        .btnContainer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(6, 1fr);
+            gap: 4px;
+            flex: 1;
+        }
+
+        .CalcBtn {
+            min-height: 64px;
+            background-color: #323232;
+            border: 0;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .CalcBtn:hover {
+            background-color: #848484;
+        }
+
+        .CalcBtn:active {
+            transform: scale(0.98);
+        }
+
+        .operator,
+        .equals {
+            background-color: #0067c0;
+        }
+
+        .operator:hover,
+        .equals:hover {
+            background-color: #1683df;
+        }
+
+        .utility {
+            background-color: #464646;
         }
     </style>
 </head>
 
 <body>
-    <h1>Simple Calculator</h1>
+    <main class="calculator" aria-label="Calculator">
+        <section class="resultContainer" aria-live="polite">
+            <p id="totalResult">0</p>
+        </section>
+
+        <section class="btnContainer">
+            <button class="CalcBtn utility" data-action="percent">%</button>
+            <button class="CalcBtn utility" data-action="clear-entry">CE</button>
+            <button class="CalcBtn utility" data-action="clear">C</button>
+            <button class="CalcBtn utility" data-action="delete">DEL</button>
+
+            <button class="CalcBtn utility" data-action="reciprocal">1/x</button>
+            <button class="CalcBtn utility" data-action="square">x2</button>
+            <button class="CalcBtn utility" data-action="sqrt">sqrt</button>
+            <button class="CalcBtn operator" data-operator="/">/</button>
+
+            <button class="CalcBtn" data-number="7">7</button>
+            <button class="CalcBtn" data-number="8">8</button>
+            <button class="CalcBtn" data-number="9">9</button>
+            <button class="CalcBtn operator" data-operator="*">x</button>
+
+            <button class="CalcBtn" data-number="4">4</button>
+            <button class="CalcBtn" data-number="5">5</button>
+            <button class="CalcBtn" data-number="6">6</button>
+            <button class="CalcBtn operator" data-operator="-">-</button>
+
+            <button class="CalcBtn" data-number="1">1</button>
+            <button class="CalcBtn" data-number="2">2</button>
+            <button class="CalcBtn" data-number="3">3</button>
+            <button class="CalcBtn operator" data-operator="+">+</button>
+
+            <button class="CalcBtn utility" data-action="toggle-sign">+/-</button>
+            <button class="CalcBtn" data-number="0">0</button>
+            <button class="CalcBtn" data-action="decimal">.</button>
+            <button class="CalcBtn equals" data-action="equals">=</button>
+        </section>
+    </main>
 
     <script>
+        const result = document.getElementById("totalResult");
+        const buttons = document.querySelectorAll(".CalcBtn");
+
+        let currentInput = "0";
+        let firstNumber = null;
+        let operator = null;
+        let shouldResetDisplay = false;
+
+        function updateDisplay(value = currentInput) {
+            result.textContent = value;
+        }
+
+        function appendNumber(number) {
+            if (currentInput === "0" || shouldResetDisplay) {
+                currentInput = number;
+                shouldResetDisplay = false;
+            } else {
+                currentInput += number;
+            }
+
+            updateDisplay();
+        }
+
+        function appendDecimal() {
+            if (shouldResetDisplay) {
+                currentInput = "0";
+                shouldResetDisplay = false;
+            }
+
+            if (!currentInput.includes(".")) {
+                currentInput += ".";
+                updateDisplay();
+            }
+        }
+
+        function chooseOperator(selectedOperator) {
+            if (operator !== null && !shouldResetDisplay) {
+                calculate();
+            }
+
+            firstNumber = Number(currentInput);
+            operator = selectedOperator;
+            shouldResetDisplay = true;
+        }
+
+        function calculate() {
+            if (operator === null || firstNumber === null) {
+                return;
+            }
+
+            const secondNumber = Number(currentInput);
+            let total;
+
+            switch (operator) {
+                case "+":
+                    total = firstNumber + secondNumber;
+                    break;
+                case "-":
+                    total = firstNumber - secondNumber;
+                    break;
+                case "*":
+                    total = firstNumber * secondNumber;
+                    break;
+                case "/":
+                    if (secondNumber === 0) {
+                        clearCalculator();
+                        updateDisplay("Cannot divide by 0");
+                        return;
+                    }
+                    total = firstNumber / secondNumber;
+                    break;
+                default:
+                    return;
+            }
+
+            currentInput = formatNumber(total);
+            firstNumber = null;
+            operator = null;
+            shouldResetDisplay = true;
+            updateDisplay();
+        }
+
+        function formatNumber(number) {
+            return Number.isInteger(number) ? String(number) : String(Number(number.toFixed(10)));
+        }
+
+        function clearCalculator() {
+            currentInput = "0";
+            firstNumber = null;
+            operator = null;
+            shouldResetDisplay = false;
+            updateDisplay();
+        }
+
+        function clearEntry() {
+            currentInput = "0";
+            shouldResetDisplay = false;
+            updateDisplay();
+        }
+
+        function deleteLastDigit() {
+            if (shouldResetDisplay) {
+                return;
+            }
+
+            currentInput = currentInput.length > 1 ? currentInput.slice(0, -1) : "0";
+            updateDisplay();
+        }
+
+        function toggleSign() {
+            if (currentInput === "0") {
+                return;
+            }
+
+            currentInput = currentInput.startsWith("-")
+                ? currentInput.slice(1)
+                : `-${currentInput}`;
+            updateDisplay();
+        }
+
+        function applySingleNumberAction(action) {
+            const number = Number(currentInput);
+
+            if (action === "sqrt" && number < 0) {
+                updateDisplay("Invalid input");
+                shouldResetDisplay = true;
+                return;
+            }
+
+            if (action === "reciprocal" && number === 0) {
+                updateDisplay("Cannot divide by 0");
+                shouldResetDisplay = true;
+                return;
+            }
+
+            const actions = {
+                percent: number / 100,
+                square: number * number,
+                sqrt: Math.sqrt(number),
+                reciprocal: 1 / number
+            };
+
+            currentInput = formatNumber(actions[action]);
+            shouldResetDisplay = true;
+            updateDisplay();
+        }
+
+        buttons.forEach((button) => {
+            button.addEventListener("click", () => {
+                const { number, operator, action } = button.dataset;
+
+                if (number !== undefined) {
+                    appendNumber(number);
+                    return;
+                }
+
+                if (operator !== undefined) {
+                    chooseOperator(operator);
+                    return;
+                }
+
+                switch (action) {
+                    case "decimal":
+                        appendDecimal();
+                        break;
+                    case "equals":
+                        calculate();
+                        break;
+                    case "clear":
+                        clearCalculator();
+                        break;
+                    case "clear-entry":
+                        clearEntry();
+                        break;
+                    case "delete":
+                        deleteLastDigit();
+                        break;
+                    case "toggle-sign":
+                        toggleSign();
+                        break;
+                    case "percent":
+                    case "square":
+                    case "sqrt":
+                    case "reciprocal":
+                        applySingleNumberAction(action);
+                        break;
+                }
+            });
+        });
+
+        updateDisplay();
     </script>
 </body>
 
