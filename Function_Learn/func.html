@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let i = 1
+        // simple function 
+        function ItoAySImplenFunction() {
+            return "Eto ay simpleng statement na nasa loob ng function";
+        }
+        ItoAySImplenFunction();
+
+        // i call natin ng 10xx
+
+        for (i; i <= 10; i++) {
+            console.log(`${i}. ${ItoAySImplenFunction()}`)
+        }
+
+        // function with parameter 
+
+        let name;
+        let age;
+        let Course;
+        let id;
+        let grades = 90;
+        let remarks = true;
+
+        console.log(profileStudent("Sherwin M Castillo", 12, "BSIT 701 A", 132123112, grades));
+
+        function profileStudent(name, age, section, idnum, marks,) {
+            return `Name: ${name}
+                    Age: ${age}
+                    Section: ${section}
+                    ID NO: ${idnum}
+                    Grades: ${marks}
+                    Remark: ${gradeRemarks()}
+                    `
+                ;
+        }
+        function gradeRemarks() {
+            switch (remarks) {
+                case (grades > 0 && grades <= 59):
+                    return "malapit na aral ka pa";
+                    break;
+                case (grades > 59 && grades <= 75):
+                    return "good nag 2.5 ka";
+                    break;
+                case (grades > 75 && grades <= 83):
+                    return "good nag 2 ka";
+                    break;
+                case (grades > 83 && grades <= 90):
+                    return "galing siyet";
+                    break;
+                case (grades > 90 && grades <= 100):
+                    return "May pang libre na sayo si mommy";
+                    break;
+                default:
+                    return "Invalid Marks!"
+                    break;
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
