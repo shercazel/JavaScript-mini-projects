@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let Student = {
+            FullName: "Sherwin M Castillo",
+            Age: 24,
+            Gender: "Male",
+            ID: 370084,
+            Course: "BSIT",
+            Section: "601A",
+            Enrolled: "04-29-26",
+            studentDetails() {
+                return (`Student Profile:
+                             Name: ${this.FullName}
+                             Age: ${this.Age}
+                             Gender:${this.Gender}
+                             ID: ${this.ID}
+                             Course: ${this.Course}
+                             Section: ${this.Section}
+                             Enrolled: ${this.Enrolled}`)
+            },
+        }
+
+        let studentProfile = Student.studentDetails();
+        console.log(studentProfile);
+        alert(studentProfile)
+
+        let Student2 = {
+            FullName: "Sherwin M Castillo",
+            Age: 24,
+            Gender: "Male",
+            ID: 370084,
+            Course: "BSIT",
+            Section: "601A",
+            Enrolled: "04-29-26",
+            studentDetails() {
+                console.log(`Student Profile:
+                             Name: ${this.FullName}
+                             Age: ${this.Age}
+                             Gender:${this.Gender}
+                             ID: ${this.ID}
+                             Course: ${this.Course}
+                             Section: ${this.Section}
+                             Enrolled: ${this.Enrolled}`)
+            },
+        }
+
+        Student2.studentDetails();
+
+    </script>
+</body>
+
+</html>
