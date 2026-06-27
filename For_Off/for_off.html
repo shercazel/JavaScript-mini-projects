@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let Animals = ['Cat', 'Dog', 'Snake', 'Birds']
+        let animal;
+        let Zoo = [];
+
+        for (animal of Animals) {
+            console.log(animal)
+            Zoo.push(animal)
+        }
+        console.log('Nilagay sa container ng Zoo ang ' + Zoo)
+        alert(`${Zoo}\n`)
+
+
+
+        let days = [];
+        let ask;
+        let wagstop = true;
+        let notAllowed = [];
+
+
+        while (wagstop) {
+            ask = prompt('Magbigay ka ng araw sa isang linggo ang mali spelling ay hindi tatangapin \nPress D pag gusto mo huminto');
+
+            if (ask == "Lunes" || ask == "Monday") {
+                days.push(ask.toUpperCase())
+            }
+            else if (ask == "Martes" || ask == "Tuesday") {
+                days.push(ask.toUpperCase())
+            }
+            else if (ask == "Wednesday" || ask == "Miyerkules") {
+                days.push(ask.toUpperCase())
+            }
+            else if (ask == "Thursday" || ask == "Huwebes") {
+                days.push(ask.toUpperCase())
+            }
+            else if (ask == "Friday" || ask == "Biyernes") {
+                days.push(ask.toUpperCase())
+            }
+            else if (ask == "Saturday" || ask == "Sabado") {
+                days.push(ask.toUpperCase())
+            }
+            else if (ask == "Sunday" || ask == "Linggo") {
+                days.push(ask.toUpperCase())
+            }
+            else if (ask.toUpperCase() == 'D') {
+                wagstop = false;
+            }
+
+            else {
+                alert("Your input not allowed");
+                notAllowed.push(ask.toUpperCase());
+            }
+
+
+        }
+        for (let day of days) {
+            if (day.trim() === '') {
+                alert("wala ka pang nilalagay ")
+                console.log(day)
+            } else {
+                alert("makikita mo sa console ang na input mo");
+                console.log(day)
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

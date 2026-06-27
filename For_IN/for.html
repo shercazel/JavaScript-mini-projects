@@ -35,28 +35,12 @@
         console.log(studentProfile);
         alert(studentProfile)
 
-        // version 2 with no return
 
-        let Student2 = {
-            FullName: "Sherwin M Castillo",
-            Age: 24,
-            Gender: "Male",
-            ID: 370084,
-            Course: "BSIT",
-            Section: "601A",
-            studentDetails() {
-                console.log(`Student Profile:
-                             Name: ${this.FullName}
-                             Age: ${this.Age}
-                             Gender:${this.Gender}
-                             ID: ${this.ID}
-                             Course: ${this.Course}
-                             Section: ${this.Section}
-                             Enrolled: ${this.Enrolled}`)
-            },
+        for (let studentkey in Student) {
+            console.log(`${studentkey}: ${Student[studentkey]}`)
         }
 
-        Student2.studentDetails();
+
 
     </script>
 </body>
