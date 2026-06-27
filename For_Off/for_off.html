@@ -25,41 +25,29 @@
 
         let days = [];
         let ask;
+        let uppercaseDays;
         let wagstop = true;
         let notAllowed = [];
+        let daysAllowed = ['LUNES', 'MONDAY', 'MARTES', 'TUESDAY', 'MIYERKULES', 'WEDNESDAY', 'HUWEBES', 'THURSDAY', 'BIYERNES', 'FRIDAY', 'SABADO', 'SATURDAY', 'LINGGO', 'SUNDAY']
 
 
         while (wagstop) {
             ask = prompt('Magbigay ka ng araw sa isang linggo ang mali spelling ay hindi tatangapin \nPress D pag gusto mo huminto');
 
-            if (ask == "Lunes" || ask == "Monday") {
-                days.push(ask.toUpperCase())
-            }
-            else if (ask == "Martes" || ask == "Tuesday") {
-                days.push(ask.toUpperCase())
-            }
-            else if (ask == "Wednesday" || ask == "Miyerkules") {
-                days.push(ask.toUpperCase())
-            }
-            else if (ask == "Thursday" || ask == "Huwebes") {
-                days.push(ask.toUpperCase())
-            }
-            else if (ask == "Friday" || ask == "Biyernes") {
-                days.push(ask.toUpperCase())
-            }
-            else if (ask == "Saturday" || ask == "Sabado") {
-                days.push(ask.toUpperCase())
-            }
-            else if (ask == "Sunday" || ask == "Linggo") {
-                days.push(ask.toUpperCase())
-            }
-            else if (ask.toUpperCase() == 'D') {
-                wagstop = false;
-            }
+            uppercaseDays = ask.toUpperCase();
 
+
+            if (daysAllowed.includes(uppercaseDays)) {
+                days.push(ask);
+                console.log(days)
+            }
+            else if (uppercaseDays === 'D') {
+                wagstop = false;
+                break;
+            }
             else {
                 alert("Your input not allowed");
-                notAllowed.push(ask.toUpperCase());
+                notAllowed.push(uppercaseDays);
             }
 
 
