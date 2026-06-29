@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+
+        let arary = [2, 3, 4, 5, 6];
+        console.log(arary)
+
+        let newArray = arary.map((num) => {
+            return `${num * 2}`;
+        });
+        console.log(newArray)
+
+
+        let names = ['Sherwin', 'Micah', 'Erroll']
+        console.log(names)
+        let helloPeople = names.map((e) => {
+            return "Hello " + e;
+        })
+
+        console.log(helloPeople);
+
+        let row = [{
+            name: "Sherwin",
+            age: 21,
+            grades: 90,
+        }, {
+            name: "Micah",
+            age: 20,
+            grades: 90,
+
+        }, {
+            name: "Erroll",
+            age: 20,
+            grades: 90,
+
+        }]
+
+
+        let nameInRow1 = row.map((e) => {
+            return "Name: " + e.name;
+        })
+
+        console.log(nameInRow1);
+
+        nameInRow1 = row.map((e) => {
+            return `Student Name: ${e.name} Age: ${e.age >= 18 ? "Adult" : "Minor"} Grades: ${e.grades >= 75 ? "Passed" : "Failed"}`;
+        })
+
+        console.log(nameInRow1)
+
+
+
+
+
+    </script>
+</body>
+
+</html>

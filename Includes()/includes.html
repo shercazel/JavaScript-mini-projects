@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // guessing words
+
+        const words = ['good', 'Better', 'Okay']
+        let askPLayer;
+        let lives = 3;
+        let guess = [];
+        while (true) {
+            askPLayer = prompt(`Guess a words\nYou have only ${lives} live`)
+            if (words.length === guess.length) {
+                alert("Congrats! nahulaan mo na lahat")
+                break;
+            }
+            else if (words.includes(askPLayer)) {
+                if (!guess.includes(askPLayer)) {
+                    alert("Nahulaan mo na ang isa sa mga word")
+                    guess.push(askPLayer);
+                }
+                else {
+                    alert("nahulaan mo nayan")
+                }
+            }
+            else {
+                lives--;
+                alert(`Binawasan ang isa sa mga buhay mo\nYou only have ${lives} Left`);
+
+                if (lives === 0) {
+                    alert('Game Over');
+                    break;
+                }
+            }
+
+
+        }
+        alert('mga nahuluan mo ' + guess);
+
+
+
+    </script>
+</body>
+
+</html>

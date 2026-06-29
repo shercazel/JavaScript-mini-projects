@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // with no param
+        let Addition = () => {
+            console.log("Addition");
+        }
+        Addition();
+
+        // with no param pero may value apllicable lang sya sa one line
+
+        let Subtraction = () => 10 - 2;
+        console.log(Subtraction());
+
+        // with return val
+        let Division = (x, y) => {
+            if (y === 0) {
+                return console.log("Cannot Divided to Zero")
+            }
+            else {
+                return x / y
+            }
+
+        }
+
+        console.log(Division(10, 0));
+
+
+
+
+    </script>
+</body>
+
+</html>
