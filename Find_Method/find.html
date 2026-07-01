@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+
+        // Hanapin ang 30 gamit ang find().
+
+        let number = [2, 12, 56, 121, 54, 12, 45, 30, 21, 4, 5, 9, 76];
+        let find30 = number.find(num => num === 30);
+        let firstEven = number.find(num => num === num % 2 == 0);
+        console.log(find30);
+        console.log(firstEven)
+
+
+        let fruits = ["Apple", "Cocumber", "Coconut", "Orange"];
+
+        let findOrange = fruits.find(fruit => fruit === "Orange")
+        console.log(findOrange)
+
+        const students = [
+            { name: "Sherwin", age: 20 },
+            { name: "Micah", age: 21 },
+            { name: "Axel", age: 19 },
+            { name: "Jude", age: 22 }
+        ];
+
+        let studentMedium = students.find(m => m.age === 19)
+        let nameAxel = students.find(a => a.name === "Axel")
+
+        const employees = [
+            { id: 101, name: "Axel" },
+            { id: 102, name: "Manny" },
+            { id: 103, name: "Mayweather" },
+            { id: 104, name: "Casimero" }
+        ];
+
+        let keepAsk = true;
+        let employeeFound = employees.find(id => id.id === userInput);
+
+        while (keepAsk) {
+            let userInput = Number(prompt("Enter your ID:"));
+            if (employeeFound) {
+                alert(`Access Granted!\nName: ${employeeFound.name}`);
+                keepAsk = false;
+            } else {
+                alert("Access Denied: Try Again")
+            }
+        }
+    </script>
+</body>
+
+</html>
