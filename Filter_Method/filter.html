@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        let evenFilter = number.filter(e => e % 2 === 0);
+
+        evenFilter.filter((e) => {
+            console.log(e + ' is even number');
+
+        });
+        console.log("even number " + evenFilter)
+        console.log("the length of even number is: " + evenFilter.length);
+
+        let StiStudent = [{
+            name: 'Sherwin',
+            section: '701a'
+        }, {
+            name: 'Micah',
+            section: '701a'
+        }, {
+            name: 'Erroll',
+            section: '701a'
+        }, {
+            name: 'Rodelas',
+            section: '701a'
+        }, {
+            name: 'Leoveras',
+            section: '701e'
+        }, {
+            name: 'Jude',
+            section: '701e'
+        }, {
+            name: 'Axel',
+            section: '701e'
+        }];
+
+        let IT701e = StiStudent.filter(student => student.section === '701e');
+        let IT701a = StiStudent.filter(student => student.section === '701a');
+
+        console.log("IT 701a students ", IT701a);
+        console.log("IT 701e students", IT701e);
+
+
+
+
+
+    </script>
+</body>
+
+</html>
