@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let user = {
+            name: "Sherwin M Castillo",
+            sex: "Male",
+            address: {
+                street: "New Lychee ",
+                building: null,
+                houseandlot: "Block 14 Lot 57 New Sta Rosa Homes",
+                Baranggay: "Dita",
+                City: "Sta Rosa",
+                Province: "Laguna",
+                PostalCode: 4026,
+            },
+            status: "Student"
+        }
+
+        for (let key in user.address) {
+            console.log(key +": " + user.address[key])
+        }
+
+
+    </script>k
+</body>
+
+</html>
