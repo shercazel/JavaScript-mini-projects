@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>filter() → piliin ang gusto mong maiwan.<br>
+        map() → baguhin o i-transform ang bawat item.<br>
+        find() → kunin ang unang tumugma.<br>
+        sort() → ayusin ang pagkakasunod-sunod.</p>     
+    <script>
+        let twoDimensionalArray = [
+            [1, 2, 3, 4, 5, 6, 7, 8],
+            ["Sherwin", "Micah", "Martirez", "Rodelas", "Erroll"],
+            ["green", "Blue", "Yellow"],
+            [21, 21, 21, 21, 21, 1, 2],
+            [{
+                name: "Sherwin M castillo",
+                age: 24,
+                grade: 90,
+                greet() {
+                    return console.log("Hello My name is: " + this.name)
+                }
+            },
+            {
+                name: "Glenn Micah Fullante",
+                age: 22,
+                grade: 98,
+                greet() {
+                    return console.log("Hello My name is: " + this.name)
+                }
+            },
+            {
+                name: "Jonas Karukaskas",
+                age: 22,
+                grade: 58,
+                greet() {
+                    return console.log("Hello My name is: " + this.name)
+                }
+            },
+            {
+                name: "Martha Pacipaya",
+                age: 22,
+                grade: 59,
+                greet() {
+                    return console.log("Hello My name is: " + this.name)
+                }
+            }
+
+
+            ],
+            [true, false, true, false]
+        ];
+
+        let getGreetMicah = twoDimensionalArray[4][1];
+        getGreetMicah.greet();
+        let ascending = twoDimensionalArray[0].sort()
+        console.log("Ascending Number " + ascending)
+
+        let alphabeticalName = twoDimensionalArray[1].sort((a, b) => a.localeCompare(b))
+        console.log("Alphabetical Arrange Order Name is : " + alphabeticalName);
+
+        let favoriteColor = twoDimensionalArray[2].find((color) => color === "Blue");
+        console.log("Your Favorite Color is : " + favoriteColor);
+
+        let evenNum = twoDimensionalArray[3].find(num => num % 2 == 0);
+        console.log("Even number is : " + evenNum)
+
+        let evaluate = twoDimensionalArray[4].filter(student => student.grade >= 60);
+        console.log("Ang pumasa sa Sti ay sina: ", evaluate)
+
+
+
+
+    </script>
+</body>
+
+</html>

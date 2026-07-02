@@ -35,6 +35,7 @@
         let studentMedium = students.find(m => m.age === 19)
         let nameAxel = students.find(a => a.name === "Axel")
 
+
         const employees = [
             { id: 101, name: "Axel" },
             { id: 102, name: "Manny" },
@@ -43,10 +44,11 @@
         ];
 
         let keepAsk = true;
-        let employeeFound = employees.find(id => id.id === userInput);
 
         while (keepAsk) {
             let userInput = Number(prompt("Enter your ID:"));
+            let employeeFound = employees.find(id => id.id === userInput);
+
             if (employeeFound) {
                 alert(`Access Granted!\nName: ${employeeFound.name}`);
                 keepAsk = false;

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let number = [10, 2, 5, 2, 1];
+        let numberAscSort = number.sort((a, b) => a - b);
+        console.log("Ascending: " + numberAscSort);
+
+        // sort to smallest to largest
+        let numbers = [45, 12, 99, 3, 67, 25, 1, 50];
+        console.log("Orginal order of the numbers in array: " + numbers);
+        let smallToLarge = numbers.sort((a, b) => a - b);
+        console.log("Small to Largest: " + smallToLarge);
+
+        let scores = [88, 95, 60, 72, 100, 81];
+        let largestToSmallest = scores.sort((a, b) => b - a);
+        console.log("Largest to Smallest :" + largestToSmallest);
+
+
+
+        let products = [
+            { name: "Laptop", price: 50000 },
+            { name: "Mouse", price: 700 },
+            { name: "Keyboard", price: 1500 },
+            { name: "Monitor", price: 12000 }
+        ];
+
+        let highestToLowest = products.sort((a, b) => b.price - a.price);
+        console.log("Price: Highest To Lowest", highestToLowest)
+
+
+        let students = [
+            { name: "Ana", grade: 85 },
+            { name: "John", grade: 92 },
+            { name: "Mark", grade: 78 },
+            { name: "Rose", grade: 96 }
+        ];
+
+        highestToLowest = students.sort((a, b) => b.grade - a.grade);
+        console.log("Grades: Highest To Lowest", highestToLowest)
+
+
+        let employees = [
+            { name: "Sherwin", age: 23, salary: 25000 },
+            { name: "John", age: 30, salary: 50000 },
+            { name: "Anna", age: 21, salary: 18000 },
+            { name: "Mike", age: 27, salary: 35000 }
+        ];
+
+        let youngestToOldest = employees.sort((a, b) => a.age - b.age)
+        let highestSalaryToLowestSalary = employees.sort((a, b) => b.salary - a.salary)
+
+
+
+        // string1.localeCompare(string2)
+        // Nagbabalik din ito ng:
+
+        // Negative → string1 bago string2
+        // Positive → string2 bago string1
+        // Zero → pareho sila
+        let nameAtoZ = employees.sort((a, b) => a.name.localeCompare(b.name));
+
+
+        console.log("Youngest To Oldest Employee: ", youngestToOldest)
+        console.log("Highest Salary to Lowest Salary: ", highestSalaryToLowestSalary)
+        console.log("Employee in Alphabetial Order: ", nameAtoZ)
+
+    </script>
+</body>
+
+</html>
