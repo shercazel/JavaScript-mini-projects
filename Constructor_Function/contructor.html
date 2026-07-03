@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // naming convention is PascalCase
+        // no need to return 
+        // new keyword required to created objects
+        // constructor functions = 
+
+        function requestDetails(name, grade, section) {
+            this.studentName = name;
+            this.studentGrade = grade;
+            this.studentSection = section;
+            this.profileInfo = function () {
+                console.log("Name :" + this.studentName + "\n" + "Grade :" + this.studentGrade + "\n" + "Section :" + this.studentSection);
+            }
+        }
+
+        let requesterOne = new requestDetails("Sherwin", "BSIT", 701);
+        requesterOne.profileInfo();
+
+    </script>
+</body>
+
+</html>
