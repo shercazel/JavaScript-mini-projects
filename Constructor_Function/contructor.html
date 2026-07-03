@@ -27,7 +27,32 @@
         let requesterOne = new requestDetails("Sherwin", "BSIT", 701);
         requesterOne.profileInfo();
 
+
+        // BankAccount
+        function BankAccount(name, age, deposit) {
+            this.name = name;
+            this.age = age;
+            this.deposit = deposit;
+
+            this.CheckBalance = function () {
+                console.log(`Name :${this.name}\nAge: ${this.age} \nYour balance is: ${this.deposit}`);
+            }
+            this.YourDeposit = function () {
+                console.log(`Name :${this.name}\nAge: ${this.age} \nYour deposit  is: ${this.deposit}`);
+            }
+            this.YourWidthraw = function (widtdraw) {
+                let result = this.deposit - widtdraw;
+                this.deposit = result;
+                console.log(`Name :${this.name}\nAge: ${this.age} \nYou succesfully widhtraw is: ${result}`);
+            }
+
+        }
+        let accounts = new BankAccount("Sherwin", 24, 5000);
+        let accDeposit = accounts.balance;
+        accounts.CheckBalance(accDeposit);
+        accounts.YourWidthraw(2000);
+        accounts.YourDeposit();
+
     </script>
 </body>
-
-</html>
+ </html>
