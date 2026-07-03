@@ -21,14 +21,21 @@
                 City: "Sta Rosa",
                 Province: "Laguna",
                 PostalCode: 4026,
+                add(x, y) {
+                    return x + y;
+                }
             },
             status: "Student"
         }
 
-        for (let key in user.address) {
-            console.log(key +": " + user.address[key])
+        let key;
+        let userAddress = user.address;
+        for (key in userAddress) {
+            console.log(key + ": " + user.address[key]);
+
         }
 
+        console.log(user.address.add(10, 2));
 
     </script>k
 </body>

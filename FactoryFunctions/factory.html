@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // factory functions
+        //kunware library system
+
+        const requester = (name, course, section, reqestBook) => {
+            let libraryDetails = {
+                studentName: name,
+                studentgrade: course,
+                studentSection: section,
+                titleBook: reqestBook,
+
+                userDetails() {
+                    console.log(`Name: ${this.studentName}\nGrade: ${this.studentSection}\nSection: ${this.studentgrade}\nTitleBook: ${this.titleBook}`);
+                },
+
+                returnDetails(year, month, day) {
+                    console.log(`ni return ni ${this.studentName} ang librong ${this.titleBook}\nDate of : ${year} ${month} ${day}`)
+                }
+            }
+            return libraryDetails
+
+        }
+
+
+
+        let user1 = requester("Sherwin", "BSIT", "601A", "Programming Books in Javascript");
+        user1.userDetails();
+        user1.returnDetails(2026, 10, 7);
+
+
+
+
+
+    </script>
+</body>
+
+</html>
