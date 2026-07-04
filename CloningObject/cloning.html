@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // cloning Objects
+
+        let Person = {
+            name: "Sherwin",
+            age: 24,
+            gender: "male",
+            greetUser() {
+                console.log("Hello" + name)
+            }
+        }
+        console.log("Original Object", Person)
+        // cloning the Person 
+        let PersonCloned = {}
+        for (let key in Person) {
+            PersonCloned[key] = Person[key];
+
+        }
+        console.log("Cloned Object", PersonCloned)
+
+        // another Way
+        let Student = Object.assign({ year: "4th year College" }, PersonCloned);
+
+        console.log("Another Way of Cloning the Objct", Student)
+
+        // another way using spread operator
+        // here is the simplest to clone object
+        let Student1 = { ...Student }
+        console.log("using spreadoperator" , Student1);
+
+
+
+    </script>
+</body>
+
+</html>
