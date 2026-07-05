@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let number = [5, 2, 1, , 7, 8, 4];
+        let result = number.reduce((a, b) => a + b, 0);
+        console.log(result);
+
+
+        let numbers = [10, 20, 30, 40, 50];
+        let resNum = numbers.reduce((num1, num2) => {
+            return num1 + num2
+        }, 0
+        )
+
+        console.log(resNum)
+
+
+        let words = ["I", "am", "learning", "JavaScript"];
+        let sentence = words.reduce((sentence, words) => {
+            return sentence + " " + words;
+        })
+        console.log(sentence)
+
+
+
+        let Student = [
+            { name: "Sherwin", age: 25 },
+            { name: "Micah", age: 22 },
+            { name: "Erroll", age: 22 }
+        ];
+
+        let StudentNames = Student.reduce((studentName, name) => {
+            studentName.push(name.name + ",");
+            return studentName
+        }, []);
+        console.log(StudentNames)
+
+
+
+        
+
+
+
+
+
+    </script>
+</body>
+
+</html>

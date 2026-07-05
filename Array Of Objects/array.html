@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+
+
+        let student = [
+            {
+                name: "Sherwin",
+                age: 25,
+                greet() {
+                    console.log("Hellow World")
+                }
+            },
+            {
+                name: "Micah",
+                age: 22,
+                greet() {
+                    console.log("Hellow World")
+                }
+            },
+            {
+                name: "Erroll Jay",
+                age: 22,
+                greet() {
+                    console.log("Hellow World")
+                }
+            },
+            {
+                name: "Rodelas",
+                age: 21,
+                greet() {
+                    console.log("Hellow World")
+                }
+            }
+        ]
+
+
+        student.push(
+            {
+                name: "Kurt Munoz",
+                age: 22,
+                greet() {
+                    console.log("Hellow World")
+                }
+            }
+        )
+        let searchOfUser = "Kurt Mnoz";
+        let found = "Meron";
+        let notFOund = "Not FOund!"
+        student.forEach(item => console.log(`Name : ${item.name}`));
+
+        let NameSearch = student.find(person => person.name === searchOfUser);
+
+        if (NameSearch) {
+            console.log(NameSearch.name);
+        } else {
+            console.log("Student not found!");
+        }
+        for (let key of student) {
+            console.log(key, key.name);
+        }
+
+        for (let property of student) {
+            console.log(`Ang mga Property ng Bawat student ay ${property.age} of age\nName: ${property.name}`)
+        }
+
+
+        let employee = {
+            name: "Sherwin Castillo",
+            age: 25,
+            salary: 5000,
+        }
+
+        for (let emp in employee) {
+            console.log(`${emp}: ${employee[emp]}`)
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

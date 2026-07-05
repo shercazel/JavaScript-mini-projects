@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // var is function scoped
+        // example
+        if (true) {
+            var age = 21
+        }
+        console.log(age)
+        // printed lasi function scoped sya nag aaplly
+
+
+        // how about gamitin sya sa mismong function scoped nya
+        function varScoped() {
+            var day = 21
+        }
+        console.log(day)
+        // not printed kasi nasa block sya ng function which is si var pang function lang
+        // var is for function scoped onnly
+
+
+
+        // let is block scoped
+        if (true) {
+            let age = 21
+        }
+        console.log(age)
+        // not accessible kasi nasa loob sya ng scope ng if which is local variable ang day not global
+
+        function varScoped() {
+            let day = 21
+        }
+        // not accessible kasi nasa loob sya ng scope ng function which is local variable ang day not global
+        console.log(day)
+    </script>
+</body>
+
+</html>
