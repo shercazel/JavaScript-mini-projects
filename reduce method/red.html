@@ -39,16 +39,114 @@
         ];
 
         let StudentNames = Student.reduce((studentName, name) => {
-            studentName.push(name.name + ",");
+            studentName.push(name.name);
             return studentName
         }, []);
         console.log(StudentNames)
 
+        let ageOfStudent = Student.reduce((studentAge, age) => {
+            const agePerson = age.age
+
+            if (!studentAge[agePerson]) {
+                studentAge[agePerson] = []
+            }
+            studentAge[agePerson].push(age.age);
+            return studentAge
+        }, {})
+        console.log(ageOfStudent);
 
 
-        
+        const grocery = [
+            { item: "Bigas", presyo: 50 },
+            { item: "Ulam", presyo: 120 },
+            { item: "Inumin", presyo: 30 }
+        ];
+
+        let totalPrice = grocery.reduce((acc, price) => {
+            acc = acc + price.presyo;
+            return acc;
+        }, 0)
+        console.log(totalPrice)
 
 
+        const mgaBoto = ["Juan", "Maria", "Juan", "Pedro", "Maria", "Juan"];
+
+        let totalVoters = mgaBoto.reduce((acc, voter) => {
+            if (acc[voter]) {
+                acc[voter] = acc[voter] + 1;
+            } else {
+                acc[voter] = 1
+            }
+            return acc;
+        }, [])
+        console.log(totalVoters)
+
+
+        const mgaEstudyante = [
+            { pangalan: "Ana", grado: 85 },
+            { pangalan: "Ben", grado: 70 },
+            { pangalan: "Cleo", grado: 92 },
+            { pangalan: "Dan", grado: 65 }
+        ];
+
+        let gradeResult = mgaEstudyante.reduce((accumaltor, student) => {
+            student.grado >= 75 ? accumaltor.Passed.push(student.grado)
+                : accumaltor.Failed.push(student.grado);
+
+            return accumaltor;
+        }, { Passed: [], Failed: [] })
+
+        console.log(gradeResult);
+
+        const mgaOrder = [
+            { id: 1, status: "delivered", presyo: 500 },
+            { id: 2, status: "cancelled", presyo: 300 },
+            { id: 3, status: "delivered", presyo: 150 },
+            { id: 4, status: "pending", presyo: 1200 }
+        ];
+
+        let kabuuangKita = mgaOrder.reduce((accumulator, order) => {
+            if (order.status === "delivered") {
+                accumulator.Delivered.push(order.status + " Price: " + order.presyo);
+
+            }
+            if (order.status === "pending") {
+                accumulator.Pennding.push(order.status + " Price: " + order.presyo);
+
+            }
+            if (order.status === "cancelled") {
+                accumulator.Cancelled.push(order.status + " Price: " + order.presyo)
+            }
+
+            return accumulator;
+
+        }, {
+            Delivered: [],
+            Pennding: [],
+            Cancelled: []
+        }
+        );
+
+        console.log(kabuuangKita);
+
+
+
+        const mgaOrder1 = [
+            { id: 1, status: "delivered", presyo: 500 },
+            { id: 2, status: "cancelled", presyo: 300 },
+            { id: 3, status: "delivered", presyo: 150 },
+            { id: 4, status: "pending", presyo: 1200 }
+        ];
+
+        let kabuuangKita1 = mgaOrder.reduce((accumulator, order) => {
+            if (order.status === "delivered") {
+                accumulator = accumulator + order.presyo;
+            }
+
+          
+            return accumulator;
+        }, 0); 
+        console.log(kabuuangKita1); 
 
 
 
