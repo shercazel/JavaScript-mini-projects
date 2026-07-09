@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // Another Name of anonymous function is function expression
+        // also as nameless functions
+
+        // here is the example
+        const abc = function () {
+            console.log("HI")
+        }
+
+        abc();
+
+        const add = function (x, y) {
+            return x + y;
+        }
+        let result = add(10, 40)
+        console.log(result)
+
+
+        const minus = () => {
+            console.log("Arrow functions")
+        }
+        minus();
+
+        const divide = (x, y) => {
+            if (y === 0) {
+                return 'Hindi Pwede i divide sa zero'
+            } else {
+                return x / y
+            }
+
+        }
+        let divRes = divide(10, 6);
+        console.log(divRes.toFixed(3));
+
+    </script>
+</body>
+
+</html>a

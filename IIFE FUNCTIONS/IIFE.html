@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // IIFE = stands for Immediately Invoked Functions Expression
+        // self invoked only 
+
+        // (function () {
+        //     console.log('Hello')
+        // })()
+
+
+        // (function (a, b) {
+        //     console.log(a + b)
+        // })(10, 20)
+
+        ((a, b) => console.log(a + b))(10, 20);
+        ((a, b) => console.log(a + b))(10, 20);
+
+        // array
+
+        let fruits = ['appple', 'sampalok', 'durian', 'kiwi'];
+        ((e) => {
+            e.forEach((fruits) => console.log(fruits))
+        })(fruits);
+
+
+        let evenNumber = [2, 1, 2, 4, 5, 7, 8, 3];
+        ((number) => {
+            console.log(number.filter((num => num % 2 === 0)));
+        })(evenNumber);
+
+
+        let employee = {
+            name: 'Sherwin Castillo',
+            age: 24,
+            empDetails() {
+                console.log(`Hello! ${this.name}`)
+            }
+        };
+
+
+        ((details) => {
+            console.log(details.name === 'Sherwin Castillo' ? 'Meron' : 'Wala')
+        })(employee);
+
+        let student = [{
+            name: 'Sherwin Castillo',
+            age: 24,
+            empDetails() {
+                console.log(`Hello! ${this.name}`)
+            }
+        },
+        {
+            name: 'Micah Fullante',
+            age: 22,
+            empDetails() {
+                console.log(`Hello! ${this.name}`)
+            }
+        },
+        {
+            name: 'Erroll Jay Olivarez',
+            age: 23,
+            empDetails() {
+                console.log(`Hello! ${this.name}`)
+            }
+        }];
+
+        ((student) => {
+            let isFind = student.find((info) => {
+                return info.name === 'Micah Fullante'
+            })
+
+            console.log(isFind ? 'Yes' : 'wala')
+        })(student)
+
+
+    </script>
+</body>
+
+</html>

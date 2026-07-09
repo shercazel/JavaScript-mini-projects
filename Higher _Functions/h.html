@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+
+        // higher order function
+        function add(a, b) {
+            return a + b;
+        }
+        function sub(a, b) {
+            return a - b;
+        }
+        function times(a, b) {
+            return a * b;
+        }
+        function div(a, b) {
+            return a / b;
+        }
+        function order(funName, a, b) {
+            return funName(a, b)
+        }
+
+        console.log(order(add, 5, 2));
+        console.log(order(sub, 5, 2));
+        console.log(order(times, 5, 2));
+        console.log(order(div, 5, 2));
+
+    </script>
+</body>
+
+</html>

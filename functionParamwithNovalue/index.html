@@ -10,10 +10,13 @@
 <body>
 
     <script>
-        let age = [19, 21, 45, 21, 56, 34, 67, 89];
 
-        let isAllAdult = age.every(person => person > 90)
-        console.log(isAllAdult);
+
+        // higher order function
+        function add(a = 5, b = 5) {
+            return a + b;
+        }
+        console.log(add());
 
 
 
