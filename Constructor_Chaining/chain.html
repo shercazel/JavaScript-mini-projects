@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        class Animal {
+            constructor(name, color) {
+                this.name = name;
+                this.color = color;
+
+                console.log(this.color + ' ' + this.name + ' is created!')
+            }
+
+
+        }
+
+
+        class Dog extends Animal {
+            constructor(name, color, breed) {
+                // here is the chaining
+                super(name, color);
+                this.breed = breed;
+                console.log(this.color + ' ' + this.name + ' is created! and its breed are ' + this.breed)
+
+            }
+
+
+        }
+        const DogAnimal = new Dog('Kupalens', 'Brown', 'Siberian Husky');
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

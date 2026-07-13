@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // not work in javascript
+        function funA() {
+            console.log("Hi")
+
+        }
+        function funA(name) {
+            console.log("Hi" + name)
+        }
+
+        function funA(name, experience) {
+            console.log("Hi" + name + "you are experience is " + experience)
+        }
+
+        function funA(name, experience, locaation) {
+            console.log("Hi " + name + " you are experience is " + experience + "\n" + "Adress: " + locaation)
+        }
+
+        funA();
+
+        // The javascript way
+
+        function funJs(name, experience, locaation) {
+
+            if (typeof name === 'string' && typeof experience === 'number' && typeof locaation === 'string') {
+                console.log("Hi " + name + " you are experience is " + experience + "\n" + "Address: " + locaation);
+            } else if (typeof name === 'string' && typeof experience === 'number') {
+                console.log("Hi " + name + " you are experience is " + experience);
+            } else if (typeof name === 'string') {
+                console.log("Hi " + name);
+            } else {
+                console.log('Empty Details');
+            }
+        }
+
+
+        funJs('Sherwin');
+        funJs('Sherwin', 12);
+        funJs('Sherwin', 12, 'Baranggay Gamao Tingloy');
+
+
+
+
+        // constructor overloading is not possible in javascript
+
+
+
+    </script>
+</body>
+
+</html>

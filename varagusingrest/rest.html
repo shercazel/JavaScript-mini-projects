@@ -12,9 +12,68 @@
     <script>
 
         function num(...x) {
-            console.log(x.reduce((a,b) => a + b, 0))
+            console.log(x.reduce((a, b) => a + b, 0))
         }
-        num(0, 1, 2, 3, 1, 3, 1, 3)
+        num(0, 1, 2, 3, 1, 3, 1, 3);
+
+
+        function pagsamahinPangalan(...names) {
+            console.log(names.join(","))
+
+        }
+        pagsamahinPangalan("Juan", "Pedro", "Maria");
+
+
+
+
+        function discountedPrice(...price) {
+            let discountPrice = price.map(p => p - (p * 0.10));
+            console.log('price discount: ' + discountPrice)
+        }
+
+        discountedPrice(0.10, 100, 200, 50);
+
+
+        function seperateNum(...num) {
+            console.log(num
+                .filter(e => typeof e === 'number')
+                .reduce((acc, initial) =>
+                    acc + initial
+                    , 0))
+        }
+        seperateNum("Saging", 10, true, 20, "Mansanas", 5);
+
+
+        function mayDuplicate(...dup) {
+            let malinis = [];
+
+            for (let i = 0; i < dup.length; i++) {
+                if (malinis.indexOf(dup[i]) === -1) {
+                    malinis.push(dup[i]);
+                }
+            }
+            console.log(malinis);
+        }
+
+        mayDuplicate("A", "B", "C", "A");
+        mayDuplicate(1, 2, 3, 4);
+
+
+        function Notification(notif) {
+            const alertNotif = notif.split("");
+
+            console.log(alertNotif[1])
+
+
+        }
+
+        Notification("ERROR", "Ang user na si {} ay nag-login gamit ang maling password sa PC {}.", "Juan", "PC-05");
+        // Dapat ibalik: "[ERROR] Ang user na si Juan ay nag-login gamit ang maling password sa PC PC-05."
+
+        Notification("INFO", "Matagumpay na na-download ang file na {}.", "report.pdf");
+        // Dapat ibalik: "[INFO] Matagumpay na na-download ang file na report.pdf."
+
+
 
 
     </script>

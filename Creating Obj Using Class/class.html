@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // class is a template, blueprint or prototyp for creating objects
+
+        class Employee {
+            constructor(name, experience) {
+                this.name = name;
+                this.experience = experience;
+            }
+            employeeDetails() {
+                console.log('Name is ' + this.name + ' and experience is ' + this.experience + 'years')
+            }
+
+        }
+
+        const emp1 = new Employee('Sherwin', 2);
+        const emp2 = new Employee('Glenn Micah', 2);
+        const emp3 = new Employee('Erroll Jay', 2);
+        const emp4 = new Employee('Ernest Rodelas', 2);
+        const emp5 = new Employee('Althea Martirez', 2);
+
+        emp1.employeeDetails();
+        console.log(emp2.name)
+
+
+
+        // exercise
+        // Car Registration System
+
+        class Car {
+            constructor(brand, model, year, running) {
+                this.brand = brand;
+                this.model = model;
+                this.year = year;
+                this.running = running;
+            }
+            CarDetails() {
+                console.log(`This car is a ${this.year} ${this.brand} ${this.model}`)
+            }
+            startEngine() {
+                if (this.running === true) {
+                    console.log("The Engine is Already Running")
+                }
+                else {
+                    this.running = true
+                    console.log(`Vroom! The Engine has Started`)
+                }
+            }
+            stopEngine() {
+                if (this.running === true) {
+                    this.running = false;
+                    console.log(`The Engine has Stopped!`)
+                } else {
+                    console.log(`The engine already off`)
+                }
+            }
+
+        }
+
+        const car = new Car('Honda Civic', 'honda1213', 2, false)
+        car.CarDetails();
+        car.startEngine();
+        car.stopEngine();
+        car.stopEngine();
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

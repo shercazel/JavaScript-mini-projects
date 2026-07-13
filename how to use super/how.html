@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+
+        class Animal {
+            constructor(name, color) {
+                this.name = name;
+                this.color = color;
+            }
+
+            eat() {
+                console.log('Animal: ' + this.name + ' is eating!')
+            }
+            sleep() {
+                console.log('Animal: ' + this.name + ' is sleeping!')
+            }
+        }
+
+
+        class Dog extends Animal {
+            constructor(name, color, breed) {
+                super(name, color);
+                this.breed = breed;
+
+            }
+            run() {
+                super.eat();
+                console.log(`The  ${this.name} color is ${this.color} and its breed are ${this.breed}`)
+            }
+
+        }
+        const DogAnimal = new Dog('Kupalens', 'Brown', 'Siberian Husky');
+
+        DogAnimal.run();
+
+
+
+
+    </script>
+</body>
+
+</html>

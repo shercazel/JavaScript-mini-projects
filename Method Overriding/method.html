@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        class Animal {
+            eat() {
+                console.log(`The Dog is eating generic food`)
+            }
+        }
+        class Dog extends Animal {
+            eat() {
+                console.log(`The Dog is Eating a bone`)
+            }
+        }
+        const animal = new Animal();
+        const dog = new Dog();
+
+        animal.eat();
+        dog.eat();
+
+
+        //exercise
+
+        class BankAccount {
+            constructor(balance) {
+                this.balance = balance;
+            }
+            withdrew(amount) {
+                this.balance = this.balance - amount;
+                console.log(`Withdrew Balance ${amount} The balance is ${this.balance}`);
+            }
+        }
+
+        class SavingsACcount extends BankAccount {
+            constructor(balance) {
+                super(balance);
+            }
+            withdrew(amount) {
+                if (amount > this.balance) {
+                    console.log(`Insufficient Balance ${amount} The balance is ${this.balance}`);
+                } else {
+                    super.withdrew(amount);
+                }
+            }
+        }
+
+        const myAccount = new SavingsACcount(2000);
+        myAccount.withdrew(500);
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

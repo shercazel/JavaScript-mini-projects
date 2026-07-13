@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // class Animal {
+        //     static animalType = 'Mammal';
+
+        //     constructor(name, age) {
+        //         this.name = name;
+        //         this.age = age;
+        //     }
+        //     getAnimalDetails() {
+        //         console.log('Name: ' + this.name + ', Age: ' + this.age + ', Type: ' + Animal.animalType);
+        //     }
+        // }
+        // const cat = new Animal('Fluffy', 5);
+        // const dog = new Animal('Buddy', 3);
+        // const rat = new Animal('bugs', 1);
+        // cat.getAnimalDetails();
+        // dog.getAnimalDetails();
+        // rat.getAnimalDetails();
+
+        class Animal {
+            static count = 0;
+
+            constructor(name) {
+                this.name = name;
+                Animal.count++;
+            }
+        }
+
+        const cat = new Animal('Cat');
+        const dog = new Animal('Dog');
+        const rat = new Animal('Rat');
+        const chiken = new Animal('Chicken');
+
+
+        console.log(Animal.count); 
+
+
+    </script>
+</body>
+
+</html>
